@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:23:58 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/08/29 05:28:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/08/31 11:47:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void	ft_print_hex(unsigned long long num, int is_upper, int *const cp)
 
 void	ft_print_ptr(void *ptr, int *const cp)
 {
+	if (ptr == NULL)
+	{
+		ft_print_str("(nil)", cp);
+		return ;
+	}
 	ft_print_str("0x", cp);
 	if (*cp != -1)
 		ft_print_hex((unsigned long long)ptr, 0, cp);
