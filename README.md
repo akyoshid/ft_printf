@@ -5,4 +5,4 @@ It is actually pretty cool :)<br>
 
 ## 🤖 Evaluations by Moulinette
 ![alt text](<evaluations.png>)
-My project page:https://projects.intra.42.fr/42cursus-ft_printf/mine
+**My project page:** [Intra 42 - akyoshid's ft_printf](https://projects.intra.42.fr/projects/42cursus-ft_printf/projects_users/3437601)
