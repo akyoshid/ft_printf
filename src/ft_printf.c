@@ -6,43 +6,39 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:22:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/06 16:49:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:37:52 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_print_varg(char const fmt, va_list *app, int *const cp)
+void	ft_print_varg(t_syntax *syntax, va_list *app, int *const cp)
 {
-	if (fmt == 'c')
+	if (syntax->type == 'c')
 		ft_print_char((char)va_arg(*app, int), cp);
-	else if (fmt == 's')
+	else if (syntax->type == 's')
 		ft_print_str(va_arg(*app, char *), cp);
-	else if (fmt == 'd' || fmt == 'i')
+	else if (syntax->type == 'd' || syntax->type == 'i')
 		ft_print_signed_dec(va_arg(*app, int), cp);
-	else if (fmt == 'u')
+	else if (syntax->type == 'u')
 		ft_print_unsigned_dec(va_arg(*app, unsigned int), cp);
-	else if (fmt == 'x')
+	else if (syntax->type == 'x')
 		ft_print_hex(va_arg(*app, unsigned int), 0, cp);
-	else if (fmt == 'X')
+	else if (syntax->type == 'X')
 		ft_print_hex(va_arg(*app, unsigned int), 1, cp);
-	else if (fmt == 'p')
+	else if (syntax->type == 'p')
 		ft_print_ptr(va_arg(*app, void *), cp);
-	else if (fmt == '%')
+	else if (syntax->type == '%')
 		ft_print_char('%', cp);
 	else
-	{
-		ft_print_char('%', cp);
-		if (*cp == -1)
-			return ;
-		ft_print_char(fmt, cp);
-	}
+		ft_print_invalid_type(syntax, cp);
 }
 
 int	ft_printf(const char *fmt, ...)
 {
-	va_list	ap;
-	int		count;
+	va_list		ap;
+	int			count;
+	t_syntax	syntax;
 
 	va_start(ap, fmt);
 	count = 0;
@@ -52,12 +48,10 @@ int	ft_printf(const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			fmt++;
-			while (*fmt == ' ')
-				fmt++;
-			if (*fmt == '\0')
+			init_syntax(&syntax);
+			if (parse_syntax(&fmt, &syntax) == -1)
 				return (-1);
-			ft_print_varg(*fmt++, &ap, &count);
+			ft_print_varg(&syntax, &ap, &count);
 		}
 		else
 			ft_print_char(*fmt++, &count);
