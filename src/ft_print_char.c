@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:21:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/08/29 05:28:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:49:40 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_print_char(char const c, int *const cp)
 {

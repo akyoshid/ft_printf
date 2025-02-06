@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:23:58 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/08/31 11:47:23 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:49:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_print_hex_char(char const num, int is_upper, int *const cp)
 {

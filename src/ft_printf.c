@@ -6,11 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:22:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/08/31 14:25:51 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:49:15 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_print_varg(char const fmt, va_list *app, int *const cp)
 {
