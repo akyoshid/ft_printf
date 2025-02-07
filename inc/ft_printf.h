@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/07 13:30:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:29:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdarg.h>
 # include <limits.h>
 # include <stdbool.h>
+# include "../libft/inc/libft.h"
+# include "../libft/inc/get_next_line_bonus.h"
 
 typedef struct s_syntax
 {
