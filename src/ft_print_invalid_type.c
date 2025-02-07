@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_invalid_type.c                               :+:      :+:    :+:   */
+/*   ft_print_invalid_type.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:33:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/06 17:35:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:18:56 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	ft_print_invalid_type(t_syntax *syntax, int *const cp)
 		ft_print_char('-', cp);
 	else if (*cp != -1 && syntax->zero_flag == true)
 		ft_print_char('0', cp);
-	// if (*cp != -1 && syntax->width_flag == true)
-	// 	ft_print_signed_dec(syntax->width_value, cp);
-	// if (*cp != -1 && syntax->precision_flag == true)
-	// 	ft_print_char('.', cp);
-	// if (*cp != -1 && syntax->precision_flag == true)
-	// 	ft_print_signed_dec(syntax->precision_value, cp);
+	if (*cp != -1 && syntax->width_flag == true)
+		ft_print_signed_dec(syntax->width_value, cp);
+	if (*cp != -1 && syntax->precision_flag == true)
+		ft_print_char('.', cp);
+	if (*cp != -1 && syntax->precision_flag == true)
+		ft_print_signed_dec(syntax->precision_value, cp);
 	if (*cp != -1)
 		ft_print_char(syntax->type, cp);
 }

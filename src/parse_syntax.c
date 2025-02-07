@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:37:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/06 17:50:22 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:19:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,56 @@ void	parse_flag(char const **fmt_p, t_syntax *syntax)
 		syntax->zero_flag = false;
 }
 
+int	parse_width(char const **fmt_p, t_syntax *syntax)
+{
+	int	temp;
+
+	temp = 0;
+	while (**fmt_p >= '0' && **fmt_p <= '9')
+	{
+		syntax->width_flag = true;
+		if (temp >= 214748365 ||
+			(temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
+			return (-1);
+		temp *= 10;
+		temp += **fmt_p - '0';
+		(*fmt_p)++;
+	}
+	syntax->width_value = temp;
+	return (0);
+}
+
+int	parse_precision(char const **fmt_p, t_syntax *syntax)
+{
+	int	temp;
+
+	syntax->precision_flag = true;
+	(*fmt_p)++;
+	temp = 0;
+	while (**fmt_p >= '0' && **fmt_p <= '9')
+	{
+		if (temp >= 214748365 ||
+			(temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
+			return (-1);
+		temp *= 10;
+		temp += **fmt_p - '0';
+		(*fmt_p)++;
+	}
+	syntax->precision_value = temp;
+	return (0);
+}
+
 int	parse_syntax(char const **fmt_p, t_syntax *syntax)
 {
 	(*fmt_p)++;
 	parse_flag(fmt_p, syntax);
-	// while (**fmt_p >= '0' && **fmt_p <= '9')
-	// {
-	// 	syntax->width_flag = true;
-	// 	// process like atoi()
-	// }
-	// if (**fmt_p == '.')
-	// {
-	// 	syntax->precision_flag = true;
-	// 	(*fmt_p)++;
-	// 	while (**fmt_p >= '0' && **fmt_p <= '9')
-	// 	{
-	// 		// process like atoi()
-	// 	}
-	// }
+	if (parse_width(fmt_p, syntax) == -1)
+		return (-1);
+	if (**fmt_p == '.')
+	{
+		if (parse_precision(fmt_p, syntax) == -1)
+			return (-1);
+	}
 	if (**fmt_p == '\0')
 		return (-1);
 	syntax->type = **fmt_p;

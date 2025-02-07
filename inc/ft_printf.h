@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/06 17:53:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:19:43 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ft_print_invalid_type(t_syntax *syntax, int *const cp);
 // parse_syntax.c
 void	init_syntax(t_syntax *syntax);
 void	parse_flag(char const **fmt_p, t_syntax *syntax);
+int		parse_width(char const **fmt_p, t_syntax *syntax);
+int		parse_precision(char const **fmt_p, t_syntax *syntax);
 int		parse_syntax(char const **fmt_p, t_syntax *syntax);
 
 #endif
