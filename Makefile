@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 17:24:00 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/07 16:28:11 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/07 16:45:00 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ INC_DIR =	inc/
 SRC_DIR =	src/
 OBJ_DIR =	obj/
 LIBFT_DIR =	libft/
+
+LIBFT_A =	$(LIBFT_DIR)/libft.a
 
 INC =		$(INC_DIR)ft_printf.h
 
@@ -41,7 +43,9 @@ bonus: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
-	$(AR) $(NAME) $(OBJ)
+	@mkdir -p $(OBJ_DIR)/libft_objs
+	@cd $(OBJ_DIR)/libft_objs && ar x ../../$(LIBFT_A)
+	$(AR) $(NAME) $(OBJ) $(OBJ_DIR)/libft_objs/*.o
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC)
 	@mkdir -p $(@D)
