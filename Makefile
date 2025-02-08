@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 17:24:00 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/08 13:29:07 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/08 14:13:38 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,15 @@ INC =		$(INC_DIR)ft_printf.h
 SRC = \
 			$(SRC_DIR)ft_printf.c\
 			$(SRC_DIR)ft_print_char.c\
-			$(SRC_DIR)ft_print_dec_utils.c\
-			$(SRC_DIR)ft_print_dec.c\
 			$(SRC_DIR)ft_print_hex.c\
 			$(SRC_DIR)ft_print_invalid_type.c\
+			$(SRC_DIR)ft_print_signed_dec.c\
 			$(SRC_DIR)ft_print_str.c\
+			$(SRC_DIR)ft_print_unsigned_dec.c\
 			$(SRC_DIR)parse_syntax.c\
+			$(SRC_DIR)print_num_utils.c\
+			$(SRC_DIR)print_signed_dec_utils.c\
+			$(SRC_DIR)print_unsigned_dec_utils.c\
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 

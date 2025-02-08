@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 13:43:32 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/08 14:02:25 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,6 @@ int		ft_printf(const char *fmt, ...);
 // ft_print_char.c
 void	ft_print_char(char const c, int *const cp);
 void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp);
-// ft_print_dec_utils.c
-int		get_digit_unsigned_dec(unsigned int num);
-char	*get_num_str_unsiged_dec(t_syntax *syntax, unsigned int num, int digit);
-int		get_digit(int num);
-char	*get_num_str(t_syntax *syntax, int num, int digit);
-char	*proc_precision(t_syntax *syntax, char *num_str, int digit);
-char	*append_sign(t_syntax *syntax, char *num_str, bool minus_flag);
-char	*proc_width(t_syntax *syntax, char *num_str);
 // ft_print_dec.c
 void	ft_wrapped_print_signed_dec_core(
 			t_syntax *syntax, char *num_str, bool minus_flag, int *const cp);
@@ -73,5 +65,15 @@ void	parse_flag(char const **fmt_p, t_syntax *syntax);
 int		parse_width(char const **fmt_p, t_syntax *syntax);
 int		parse_precision(char const **fmt_p, t_syntax *syntax);
 int		parse_syntax(char const **fmt_p, t_syntax *syntax);
+// print_num_utils.c
+char	*proc_precision(t_syntax *syntax, char *num_str, int digit);
+char	*proc_width(t_syntax *syntax, char *num_str);
+// print_signed_dec_utils.c
+int		get_digit_signed_dec(int num);
+char	*get_num_str_signed_dec(t_syntax *syntax, int num, int digit);
+char	*append_sign(t_syntax *syntax, char *num_str, bool minus_flag);
+// print_unsigned_dec_utils.c
+int		get_digit_unsigned_dec(unsigned int num);
+char	*get_num_str_unsiged_dec(t_syntax *syntax, unsigned int num, int digit);
 
 #endif

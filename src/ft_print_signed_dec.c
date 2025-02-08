@@ -1,16 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_dec.c                                     :+:      :+:    :+:   */
+/*   ft_print_signed_dec.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:23:06 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 13:51:34 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/08 14:12:24 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
+
+void	ft_print_signed_dec(int num, int *const cp)
+{
+	char	remainder;
+
+	if (num == INT_MIN)
+	{
+		ft_print_str("-2147483648", cp);
+		return ;
+	}
+	if (num < 0)
+	{
+		ft_print_char('-', cp);
+		if (*cp == -1)
+			return ;
+		num *= -1;
+	}
+	remainder = num % 10 + '0';
+	if (num / 10 > 0)
+		ft_print_signed_dec(num / 10, cp);
+	if (*cp != -1)
+		ft_print_char(remainder, cp);
+}
 
 void	ft_wrapped_print_signed_dec_core(
 	t_syntax *syntax, char *num_str, bool minus_flag, int *const cp)
@@ -50,8 +73,8 @@ void	ft_wrapped_print_signed_dec(t_syntax *syntax, int num, int *const cp)
 	minus_flag = false;
 	if (num < 0)
 		minus_flag = true;
-	digit = get_digit(num);
-	num_str = get_num_str(syntax, num, digit);
+	digit = get_digit_signed_dec(num);
+	num_str = get_num_str_signed_dec(syntax, num, digit);
 	if (num_str == NULL)
 		return ;
 	if (syntax->precision_flag == true && syntax->precision_value > digit)
@@ -59,60 +82,4 @@ void	ft_wrapped_print_signed_dec(t_syntax *syntax, int num, int *const cp)
 	if (num_str == NULL)
 		return ;
 	ft_wrapped_print_signed_dec_core(syntax, num_str, minus_flag, cp);
-}
-
-void	ft_print_signed_dec(int num, int *const cp)
-{
-	char	remainder;
-
-	if (num == INT_MIN)
-	{
-		ft_print_str("-2147483648", cp);
-		return ;
-	}
-	if (num < 0)
-	{
-		ft_print_char('-', cp);
-		if (*cp == -1)
-			return ;
-		num *= -1;
-	}
-	remainder = num % 10 + '0';
-	if (num / 10 > 0)
-		ft_print_signed_dec(num / 10, cp);
-	if (*cp != -1)
-		ft_print_char(remainder, cp);
-}
-
-void	ft_wrapped_print_unsigned_dec(
-	t_syntax *syntax, unsigned int num, int *const cp)
-{
-	int		digit;
-	char	*num_str;
-
-	digit = get_digit_unsigned_dec(num);
-	num_str = get_num_str_unsiged_dec(syntax, num, digit);
-	if (num_str == NULL)
-		return ;
-	if (syntax->precision_flag == true && syntax->precision_value > digit)
-		num_str = proc_precision(syntax, num_str, digit);
-	if (num_str == NULL)
-		return ;
-	if (syntax->width_flag == true)
-		num_str = proc_width(syntax, num_str);
-	if (num_str == NULL)
-		return ;
-	ft_print_str(num_str, cp);
-	free(num_str);
-}
-
-void	ft_print_unsigned_dec(unsigned int num, int *const cp)
-{
-	char	remainder;
-
-	remainder = num % 10 + '0';
-	if (num / 10 > 0)
-		ft_print_unsigned_dec(num / 10, cp);
-	if (*cp != -1)
-		ft_print_char(remainder, cp);
 }
