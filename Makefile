@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 17:24:00 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/07 16:45:00 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/08 06:57:54 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = \
 			$(SRC_DIR)ft_print_dec.c\
 			$(SRC_DIR)ft_print_hex.c\
 			$(SRC_DIR)ft_print_invalid_type.c\
+			$(SRC_DIR)ft_print_str.c\
 			$(SRC_DIR)parse_syntax.c\
 
 OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/07 16:29:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/08 07:02:00 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int		ft_printf(const char *fmt, ...);
 // ft_print_char.c
 void	ft_print_char(char const c, int *const cp);
 void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp);
-void	ft_print_str(char const *str, int *const cp);
-void	ft_wrapped_print_str(t_syntax *syntax, char *str, int *const cp);
 // ft_print_dec.c
 void	ft_print_signed_dec(int num, int *const cp);
 void	ft_print_unsigned_dec(unsigned int num, int *const cp);
@@ -51,6 +49,11 @@ void	ft_print_hex(unsigned long long num, int is_upper, int *const cp);
 void	ft_print_ptr(void *ptr, int *const cp);
 // ft_print_invalid_type.c
 void	ft_print_invalid_type(t_syntax *syntax, int *const cp);
+// ft_print_str.c
+void	ft_print_str(char const *str, int *const cp);
+void	ft_wrapped_print_str_core(
+			t_syntax *syntax, char *str, int len, int *const cp);
+void	ft_wrapped_print_str(t_syntax *syntax, char *str, int *const cp);
 // parse_syntax.c
 void	init_syntax(t_syntax *syntax);
 void	parse_flag(char const **fmt_p, t_syntax *syntax);
