@@ -41,6 +41,7 @@ int		ft_printf(const char *fmt, ...);
 void	ft_print_char(char const c, int *const cp);
 void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp);
 void	ft_print_str(char const *str, int *const cp);
+void	ft_wrapped_print_str(t_syntax *syntax, char *str, int *const cp);
 // ft_print_dec.c
 void	ft_print_signed_dec(int num, int *const cp);
 void	ft_print_unsigned_dec(unsigned int num, int *const cp);

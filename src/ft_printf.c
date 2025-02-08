@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:22:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/07 13:31:22 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:38:53 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_varg(t_syntax *syntax, va_list *app, int *const cp)
 	if (syntax->type == 'c')
 		ft_wrapped_print_char(syntax, (char)va_arg(*app, int), cp);
 	else if (syntax->type == 's')
-		ft_print_str(va_arg(*app, char *), cp);
+		ft_wrapped_print_str(syntax, va_arg(*app, char *), cp);
 	else if (syntax->type == 'd' || syntax->type == 'i')
 		ft_print_signed_dec(va_arg(*app, int), cp);
 	else if (syntax->type == 'u')

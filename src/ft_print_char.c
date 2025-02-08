@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:21:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/07 13:30:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:58:59 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,47 @@ void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp)
 	}
 	else
 		ft_print_char(c, cp);
+}
+
+void	ft_wrapped_print_str(t_syntax *syntax, char *str, int *const cp)
+{
+	int		i;
+	int		len;
+	bool	malloc_flag;
+
+	if (str == NULL && syntax->precision_flag == true && syntax->precision_value < 6)
+		return ;
+	if (str == NULL)
+		return (ft_wrapped_print_str(syntax, "(null)", cp));
+	len = ft_strlen(str);
+	malloc_flag = false;
+	if (syntax->precision_flag == true && syntax->precision_value < len)
+	{
+		len = syntax->precision_value;
+		str = ft_strdup(str);
+		if (str == NULL)
+			return ;
+		malloc_flag = true;
+		str[syntax->precision_value] = '\0';
+	}
+	if (syntax->width_flag == true && syntax->width_value > len)
+	{
+		i = 0;
+		while (i < syntax->width_value || i < len)
+		{
+			if (syntax->minus_flag == true && i < len)
+				ft_print_char(str[i], cp);
+			else if (syntax->minus_flag == 0 && i >= syntax->width_value - len)
+				ft_print_char(str[i - (syntax->width_value - len)], cp);
+			else
+				ft_print_char(' ', cp);
+			if (*cp == -1)
+				return ;
+			i++;
+		}
+	}
+	else
+		ft_print_str(str, cp);
+	if (malloc_flag == true)
+		free(str);
 }
