@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 17:24:00 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/08 06:57:54 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/08 13:29:07 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ INC =		$(INC_DIR)ft_printf.h
 SRC = \
 			$(SRC_DIR)ft_printf.c\
 			$(SRC_DIR)ft_print_char.c\
+			$(SRC_DIR)ft_print_dec_utils.c\
 			$(SRC_DIR)ft_print_dec.c\
 			$(SRC_DIR)ft_print_hex.c\
 			$(SRC_DIR)ft_print_invalid_type.c\
