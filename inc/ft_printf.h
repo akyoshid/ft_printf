@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 14:02:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/08 15:24:00 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,12 @@ void	ft_wrapped_print_unsigned_dec(
 			t_syntax *syntax, unsigned int num, int *const cp);
 void	ft_print_unsigned_dec(unsigned int num, int *const cp);
 // ft_printt_hex.c
-void	ft_print_hex_char(char const num, int is_upper, int *const cp);
-void	ft_print_hex(unsigned long long num, int is_upper, int *const cp);
-void	ft_print_ptr(void *ptr, int *const cp);
+void	ft_print_hex_with_prefix(
+			t_syntax *syntax, char *num_str, int is_upper, int *const cp);
+void	ft_print_hex(
+			t_syntax *syntax, unsigned long long num,
+			int is_upper, int *const cp);
+// void	ft_print_ptr(void *ptr, int *const cp);
 // ft_print_invalid_type.c
 void	ft_print_invalid_type(t_syntax *syntax, int *const cp);
 // ft_print_str.c
@@ -65,6 +68,11 @@ void	parse_flag(char const **fmt_p, t_syntax *syntax);
 int		parse_width(char const **fmt_p, t_syntax *syntax);
 int		parse_precision(char const **fmt_p, t_syntax *syntax);
 int		parse_syntax(char const **fmt_p, t_syntax *syntax);
+// print_hex_utils.c
+int		get_digit_hex(unsigned long long num);
+char	*get_num_str_hex(
+			t_syntax *syntax, unsigned int num, int digit, int is_upper);
+char	*append_prefix(char *num_str, int is_upper);
 // print_num_utils.c
 char	*proc_precision(t_syntax *syntax, char *num_str, int digit);
 char	*proc_width(t_syntax *syntax, char *num_str);

@@ -6,7 +6,7 @@
 #    By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 17:24:00 by akyoshid          #+#    #+#              #
-#    Updated: 2025/02/08 14:13:38 by akyoshid         ###   ########.fr        #
+#    Updated: 2025/02/08 15:12:39 by akyoshid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC = \
 			$(SRC_DIR)ft_print_str.c\
 			$(SRC_DIR)ft_print_unsigned_dec.c\
 			$(SRC_DIR)parse_syntax.c\
+			$(SRC_DIR)print_hex_utils.c\
 			$(SRC_DIR)print_num_utils.c\
 			$(SRC_DIR)print_signed_dec_utils.c\
 			$(SRC_DIR)print_unsigned_dec_utils.c\
