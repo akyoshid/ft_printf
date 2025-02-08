@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:24:02 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 13:28:49 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/08 13:43:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int		ft_printf(const char *fmt, ...);
 void	ft_print_char(char const c, int *const cp);
 void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp);
 // ft_print_dec_utils.c
+int		get_digit_unsigned_dec(unsigned int num);
+char	*get_num_str_unsiged_dec(t_syntax *syntax, unsigned int num, int digit);
 int		get_digit(int num);
 char	*get_num_str(t_syntax *syntax, int num, int digit);
 char	*proc_precision(t_syntax *syntax, char *num_str, int digit);
@@ -51,6 +53,8 @@ void	ft_wrapped_print_signed_dec_core(
 			t_syntax *syntax, char *num_str, bool minus_flag, int *const cp);
 void	ft_wrapped_print_signed_dec(t_syntax *syntax, int num, int *const cp);
 void	ft_print_signed_dec(int num, int *const cp);
+void	ft_wrapped_print_unsigned_dec(
+			t_syntax *syntax, unsigned int num, int *const cp);
 void	ft_print_unsigned_dec(unsigned int num, int *const cp);
 // ft_printt_hex.c
 void	ft_print_hex_char(char const num, int is_upper, int *const cp);
