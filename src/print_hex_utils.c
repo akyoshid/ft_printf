@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:56:35 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 15:13:08 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/09 04:29:20 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_digit_hex(unsigned long long num)
 }
 
 char	*get_num_str_hex(
-	t_syntax *syntax, unsigned int num, int digit, int is_upper)
+	t_syntax *syntax, unsigned long long num, int digit, int is_upper)
 {
 	char	*num_str;
 	int		count;

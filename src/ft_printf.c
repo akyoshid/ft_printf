@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:22:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 15:24:42 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/09 04:46:04 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	ft_print_varg(t_syntax *syntax, va_list *app, int *const cp)
 		ft_print_hex(syntax, va_arg(*app, unsigned int), 0, cp);
 	else if (syntax->type == 'X')
 		ft_print_hex(syntax, va_arg(*app, unsigned int), 1, cp);
-	// else if (syntax->type == 'p')
-	// 	ft_print_ptr(va_arg(*app, void *), cp);
+	else if (syntax->type == 'p')
+		ft_print_ptr(syntax, va_arg(*app, void *), cp);
 	else if (syntax->type == '%')
-		ft_print_char('%', cp);
+		ft_wrapped_print_char(syntax, '%', cp);
 	else
 		ft_print_invalid_type(syntax, cp);
 }

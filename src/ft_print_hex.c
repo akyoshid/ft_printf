@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:23:58 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 15:25:07 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/09 04:45:20 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,48 @@ void	ft_print_hex(
 	}
 }
 
-// void	ft_print_ptr(void *ptr, int *const cp)
-// {
-// 	if (ptr == NULL)
-// 	{
-// 		ft_print_str("(nil)", cp);
-// 		return ;
-// 	}
-// 	ft_print_str("0x", cp);
-// 	if (*cp != -1)
-// 		ft_print_hex((unsigned long long)ptr, 0, cp);
-// }
+void	ft_print_ptr_with_prefix(
+	t_syntax *syntax, char *num_str, int is_upper, int *const cp)
+{
+	if (syntax->zero_flag == true && syntax->precision_flag == false)
+	{
+		syntax->width_value = syntax->width_value - 2;
+		if (syntax->width_flag == true)
+			num_str = proc_width(syntax, num_str);
+		if (num_str == NULL)
+			return ;
+		num_str = append_prefix(num_str, is_upper);
+	}
+	else
+	{
+		num_str = append_prefix(num_str, is_upper);
+		if (syntax->width_flag == true)
+			num_str = proc_width(syntax, num_str);
+		if (num_str == NULL)
+			return ;
+
+	}
+	ft_print_str(num_str, cp);
+	free(num_str);
+}
+
+void	ft_print_ptr(t_syntax *syntax, void *ptr, int *const cp)
+{
+	int		digit;
+	char	*num_str;
+
+	if (ptr == NULL)
+	{
+		ft_wrapped_print_str(syntax, "(nil)", cp);
+		return ;
+	}
+	digit = get_digit_hex((unsigned long long)ptr);
+	num_str = get_num_str_hex(syntax, (unsigned long long)ptr, digit, false);
+	if (num_str == NULL)
+		return ;
+	if (syntax->precision_flag == true && syntax->precision_value > digit)
+		num_str = proc_precision(syntax, num_str, digit);
+	if (num_str == NULL)
+		return ;
+	ft_print_ptr_with_prefix(syntax, num_str, false, cp);
+}
