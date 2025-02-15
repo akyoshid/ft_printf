@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 17:22:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/09 04:46:04 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/15 08:44:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_varg(t_syntax *syntax, va_list *app, int *const cp)
 	else if (syntax->type == 'p')
 		ft_print_ptr(syntax, va_arg(*app, void *), cp);
 	else if (syntax->type == '%')
-		ft_wrapped_print_char(syntax, '%', cp);
+		ft_print_char('%', cp);
 	else
 		ft_print_invalid_type(syntax, cp);
 }
