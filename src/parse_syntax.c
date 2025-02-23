@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:37:09 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/07 10:19:30 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:42:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	parse_width(char const **fmt_p, t_syntax *syntax)
 	while (**fmt_p >= '0' && **fmt_p <= '9')
 	{
 		syntax->width_flag = true;
-		if (temp >= 214748365 ||
-			(temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
+		if (temp >= 214748365
+			|| (temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
 			return (-1);
 		temp *= 10;
 		temp += **fmt_p - '0';
@@ -78,8 +78,8 @@ int	parse_precision(char const **fmt_p, t_syntax *syntax)
 	temp = 0;
 	while (**fmt_p >= '0' && **fmt_p <= '9')
 	{
-		if (temp >= 214748365 ||
-			(temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
+		if (temp >= 214748365
+			|| (temp == 214748364 && (**fmt_p >= '8' && **fmt_p <= '9')))
 			return (-1);
 		temp *= 10;
 		temp += **fmt_p - '0';

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:56:35 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 13:57:10 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:44:11 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_digit_unsigned_dec(unsigned int num)
 	int	digit;
 
 	digit = 0;
-	if (num  == 0)
+	if (num == 0)
 		return (1);
 	while (num > 0)
 	{

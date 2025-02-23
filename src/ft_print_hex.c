@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:23:58 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/09 04:45:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:43:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	ft_print_ptr_with_prefix(
 			num_str = proc_width(syntax, num_str);
 		if (num_str == NULL)
 			return ;
-
 	}
 	ft_print_str(num_str, cp);
 	free(num_str);

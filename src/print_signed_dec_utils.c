@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:24:30 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 14:02:41 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:39:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_digit_signed_dec(int num)
 		return (10);
 	else if (num < 0)
 		num *= -1;
-	else if (num  == 0)
+	else if (num == 0)
 		return (1);
 	while (num > 0)
 	{

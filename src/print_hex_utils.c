@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:56:35 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/09 04:29:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:43:29 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_digit_hex(unsigned long long num)
 	int	digit;
 
 	digit = 0;
-	if (num  == 0)
+	if (num == 0)
 		return (1);
 	while (num > 0)
 	{
@@ -44,9 +44,11 @@ char	*get_num_str_hex(
 	{
 		num_str[digit - count - 1] = num % 16 + '0';
 		if (num_str[digit - count - 1] > '9' && is_upper == true)
-			num_str[digit - count - 1] = num_str[digit - count - 1] - '0' - 10 + 'A';
+			num_str[digit - count - 1]
+				= num_str[digit - count - 1] - '0' - 10 + 'A';
 		else if (num_str[digit - count - 1] > '9' && is_upper == false)
-			num_str[digit - count - 1] = num_str[digit - count - 1] - '0' - 10 + 'a';
+			num_str[digit - count - 1]
+				= num_str[digit - count - 1] - '0' - 10 + 'a';
 		num /= 16;
 		count++;
 	}

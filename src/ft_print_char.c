@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 05:21:51 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/02/08 06:51:51 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:41:30 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_wrapped_print_char(t_syntax *syntax, char const c, int *const cp)
 		{
 			if (syntax->minus_flag == true && i == 0)
 				ft_print_char(c, cp);
-			else if (syntax->minus_flag == false && i == syntax->width_value - 1)
+			else if (syntax->minus_flag == false
+				&& i == syntax->width_value - 1)
 				ft_print_char(c, cp);
 			else
 				ft_print_char(' ', cp);
